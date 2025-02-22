@@ -2,28 +2,28 @@ import { createReducer, on } from '@ngrx/store';
 import { decrement, increment, reset } from './counter.actions';
 
 export interface CounterState {
-    count: number;
-  }
-  
-  export const initialState: CounterState = {
-    count: 0
-  };
+  count: number;
+}
+
+export const initialState: CounterState = {
+  count: 0
+};
 
 export const counterReducer = createReducer(
   initialState,
-  on(increment, (state) => {
+  on(increment, (state: CounterState) => {
     console.log('Increment action triggered. Current state:', state);
     const newState = { ...state, count: state.count + 1 };
     console.log('New state after increment:', newState);
     return newState;
   }),
-  on(decrement, (state) => {
+  on(decrement, (state: CounterState) => {
     console.log('Decrement action triggered. Current state:', state);
     const newState = { ...state, count: state.count - 1 };
     console.log('New state after decrement:', newState);
     return newState;
   }),
-  on(reset, (state) => {
+  on(reset, (state: CounterState) => {
     console.log('Reset action triggered. Current state:', state);
     const newState = { ...state, count: 0 };
     console.log('New state after reset:', newState);

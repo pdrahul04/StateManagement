@@ -14,8 +14,8 @@ import { CounterState } from '../store/counter.reducer';
 export class MyCounterComponent {
   count$: Observable<number>;
 
-  constructor(private store: Store<{ count: CounterState }>) {
-    this.count$ = this.store.select(state => state.count.count);
+  constructor(private store: Store<{ counter: CounterState }>) {
+    this.count$ = this.store.select((state) => state.counter.count);
   }
 
   increment() {
